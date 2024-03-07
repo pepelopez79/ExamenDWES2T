@@ -131,12 +131,6 @@ class controlador {
             header('Location: index.php?accion=iniciarSesion&error=fuera');
             exit();
         }
-
-        // Si se enviaron fechas de inicio y fin, buscamos tareas dentro del rango de fechas
-        if (isset($_GET['fecha_inicio']) && isset($_GET['fecha_fin'])) {
-            $this->buscarTareasPorRangoFechas();
-            return;
-        }
     
         // Obtenemos los parámetros de orden, página y registros por página
         $orden = isset($_GET['orden']) && in_array($_GET['orden'], ['asc', 'desc']) ? $_GET['orden'] : 'asc';
